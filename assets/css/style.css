@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #000000;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 10px 10px rgba(164, 164, 158, 0.8);
+}
+
+.logoPrincipal {
+    height: 95px;
+    width: auto;
+    max-height: 100%;
+}
+
+.navLinks {
+    list-style: none;
+    display: flex;
+}
+
+.navLinks li {
+    margin-left: 18px;
+}
+
+.navLinks a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.7s ease, transform 0.7s ease, background-color 0.7s ease, box-shadow 0.7s ease;
+}
+
+.navLinks a:hover {
+        transform: scale(1.2);
+}
+
+.button{
+    display: block;
+    width: 200px;
+    text-decoration: none;
+    color: #222;
+    padding: 6px 10px;
+    margin-top: 10px;
+    text-align: center;
+    position: relative;
+    transition: color 0.5s;
+}
+
+.button::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: #777777;
+    border-radius: 30px;
+    z-index: -1;
+    left: 100%;
+    width: 0%;
+    transition: 0.5s;
+    
+}
+
+.button:hover{
+    color: rgb(0, 0, 0);
+}
+
+.button:hover::before{
+    left: 0%;
+    width: 100%;
+    transition: width 0.5s;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 21px;
+    transition: transform 0.3s ease;
+}
+
+.burger div {
+    width: 30px;
+    height: 4px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+.burger:hover div {
+    background-color: #363d43;
+}
+
+.burger:active {
+    transform: scale(0.9);
+}
+
+.burger:active div {
+    background-color: f4a261;
+    box-shadow: 0 10px 10px rgba(164, 164, 158, 0.9);
+}
+
+@media screen and (max-width: 768px) {
+    .navLinks {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        width: 40%;
+        background-color: #000000;
+        box-shadow: 10px 10px 10px rgba(164, 164, 158, 0.8);
+        transition: 0.3s ease;
+        transform: translateY(-100%);
+    }
+
+    .navLinks.active {
+        display: flex;
+        transform: translateY(0);
+    }
+
+    .navLinks li {
+        margin: 15px 0;
+        text-align: center;
+        opacity: 0;
+        animation: slideIn 0.5s forwards;
+    }
+
+    .navLinks li:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .navLinks li:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .navLinks li:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    .navLinks li:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+
+    .navLinks li:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .burger {
+        display: block;
+    }
+}
